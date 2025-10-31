@@ -58,7 +58,12 @@ const JDManagement = () => {
   const handleSaveJD = () => {
     if (generatedJD) {
       setSavedJDs([
-        { ...generatedJD, id: Date.now(), status: "Active" },
+        {
+          ...generatedJD,
+          id: Date.now(),
+          status: "Active",
+          createdAt: new Date().toLocaleString(),
+        },
         ...savedJDs,
       ]);
       setGeneratedJD(null);
@@ -77,7 +82,7 @@ const JDManagement = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Header Section */}
       <div className="bg-white border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-8">
@@ -112,14 +117,14 @@ const JDManagement = () => {
           {/* Left Column - Input & Generator */}
           <div className="lg:col-span-2 space-y-6">
             {/* Feature Info Card */}
-            <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl shadow-lg p-6 text-white">
+            <div className="bg-linear-to-r from-indigo-500 to-purple-600 rounded-xl shadow-lg p-6 text-white">
               <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                 <SparklesIcon className="w-6 h-6" />
                 How It Works
               </h2>
               <div className="space-y-3 text-sm">
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center font-semibold">
+                  <div className="shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center font-semibold">
                     1
                   </div>
                   <p className="pt-0.5">
@@ -129,7 +134,7 @@ const JDManagement = () => {
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center font-semibold">
+                  <div className="shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center font-semibold">
                     2
                   </div>
                   <p className="pt-0.5">
@@ -138,7 +143,7 @@ const JDManagement = () => {
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center font-semibold">
+                  <div className="shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center font-semibold">
                     3
                   </div>
                   <p className="pt-0.5">
@@ -175,7 +180,7 @@ const JDManagement = () => {
 
                 {error && (
                   <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
-                    <ExclamationCircleIcon className="w-5 h-5 flex-shrink-0" />
+                    <ExclamationCircleIcon className="w-5 h-5 shrink-0" />
                     <span>{error}</span>
                   </div>
                 )}
@@ -183,7 +188,7 @@ const JDManagement = () => {
                 <button
                   onClick={handleGenerateJD}
                   disabled={!jobInput.trim() || isGenerating}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-linear-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02] active:scale-[0.98]"
                 >
                   {isGenerating ? (
                     <>
@@ -236,7 +241,7 @@ const JDManagement = () => {
 
                 <div className="space-y-6">
                   {/* Responsibilities */}
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-5">
+                  <div className="bg-linear-to-r from-blue-50 to-indigo-50 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                       Key Responsibilities
@@ -255,7 +260,7 @@ const JDManagement = () => {
                   </div>
 
                   {/* Must-Have Skills */}
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-5">
+                  <div className="bg-linear-to-r from-green-50 to-emerald-50 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                       Must-Have Skills
@@ -266,7 +271,7 @@ const JDManagement = () => {
                           key={idx}
                           className="flex items-start gap-2 text-gray-700"
                         >
-                          <CheckCircleIcon className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                          <CheckCircleIcon className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -274,7 +279,7 @@ const JDManagement = () => {
                   </div>
 
                   {/* Good-to-Have Skills */}
-                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-5">
+                  <div className="bg-linear-to-r from-purple-50 to-pink-50 rounded-lg p-5">
                     <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
                       <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                       Good-to-Have Skills
@@ -297,7 +302,7 @@ const JDManagement = () => {
                 <div className="mt-6 flex gap-3">
                   <button
                     onClick={handleSaveJD}
-                    className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-[1.02]"
+                    className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-linear-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-[1.02]"
                   >
                     <CheckCircleIcon className="w-5 h-5" />
                     Save Job Description
