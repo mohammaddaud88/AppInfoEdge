@@ -14,6 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Dashboard/>}/>
+          <Route path='/jd-generator' element={<JDManagement/>}/>
         </Routes>
       </Router>
     </>

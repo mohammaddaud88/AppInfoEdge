@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   HomeIcon,
   DocumentTextIcon,
@@ -86,12 +87,14 @@ const RecruiterDashboard = () => {
     },
   ];
 
+  const navigate = useNavigate()
+
   const renderContent = () => {
     switch (activeTab) {
       case 'dashboard':
         return <DashboardContent />;
       case 'jd-generator':
-        return <JDGeneratorContent />;
+        return navigate('/jd-generator');
       case 'cv-parsing':
         return <CVParsingContent />;
       case 'question-generation':
